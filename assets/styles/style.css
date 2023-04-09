@@ -1,0 +1,73 @@
+:root {
+    /*  color scheme */
+    --primary: rgb(255, 251, 243);
+    --secondary: rgb(255, 43, 43);
+    --alt: rgb(95, 172, 255);
+    --light: white;
+    --dark: rgb(20, 20, 20);
+  
+    /* typography */
+    --fs-h1: 3.5rem;
+    --fs-h2: 3rem;
+    --fs-h3: 2rem;
+    --fs-body: 1rem;
+  }
+  
+  /* Mobile Type */
+  
+  @media (max-width: 620px) {
+    :root {
+      --fs-h1: 3rem;
+      --fs-h2: 2.25rem;
+      --fs-h3: 1.5rem;
+      --fs-body: 1rem;
+    }
+  }
+  
+  /* global styles */
+  
+  * {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: var(--fs-h2);
+    line-height: 3.5rem;
+  }
+  
+  h3 {
+    font-size: var(--fs-h3);
+    line-height: 2.25rem;
+  }
+  
+  p {
+    font-size: var(--fs-body);
+    line-height: 1.75rem;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+  /* nav styles */
+
+  nav {
+    display: flex;
+    width: 100%;
+    background-color: var(--dark);
+    color: var(--light);
+    justify-content: space-between;
+    padding: 1rem 2%;
+  }
