@@ -28,14 +28,26 @@
     </nav>
     <!-- create body that displays a question and 4 possible clickable answers -->
     <main>
-        <section class="quiz-container">
-            <h2 class="question">
 
-            </h2>
-            <ul class="answers">
+        <section class="default-container">
+            <h2>Take the Code Quiz challenge!</h2>
+            <p>Welcome to the Code quiz! Answer all the questions before the time runs out and beat the high score! Incorrect answers subtract points. Correct andswers add points. Good luck!</p>
+            <button class="btn start-btn">Start Quiz</button>
+        </section>
+        <section class="quiz-container hidden">
 
-            </ul>
-            <p class="response"></p>
+            <div class="question-container">
+                <h2 class="question">
+                    Arrays in JavaScript can be used to store ______.
+                </h2>
+            </div>
+            <div class="answer-container">
+                <div><button class="answer-option">Numbers</button></div>
+                <div><button class="answer-option">Strings</button></div>
+                <div><button class="answer-option">Arrays</button></div>
+                <div><button class="answer-option">All of the above</button></div>
+            </div>
+            <p class="response hidden">That answer is CORRECT!</p>
         </section>
     </main>
 
