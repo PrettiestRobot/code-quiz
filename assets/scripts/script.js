@@ -7,12 +7,37 @@ const defaultCont = document.querySelector(".default-container");
 const quizCont = document.querySelector(".quiz-container");
 const answerBtns = document.querySelector(".answer-container");
 const answerResult = document.querySelector(".answer-result");
+const playerName = document.querySelector("#pname");
+const endCont = document.querySelector(".end-container");
+const submitBtn = document.querySelector("#submit-btn");
+const backBtn = document.querySelector('#back-btn');
+const clearBtn = document.querySelector('#clear-btn');
+const scoreCont = document.querySelector('.score-container');
+const scoreBoardCont = document.querySelector(".score-board")
+const hiscoreBTN = document.querySelector(".hiscore-btn");
 
 let score = 0;
 let timeLeft = 50;
-let timeInterval; 
-// sets 2 empty variables with one const
+let timeInterval;
+// sets 2 empty variables for shuffling questions with one const
 let shuffledQuestions, currentQuestions;
+
+// local storage score handling
+let scoreBoard = [];
+localStorage.setItem('scoreBoard', JSON.stringify(scoreBoard));
+
+function storeScore (event) {
+  let localScoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
+  event.preventDefault();
+  var player = {
+    name: playerName.value,
+    score: score
+  }
+  localScoreBoard.push(player);
+  quizDefault();
+  console.log(scoreBoard);
+  localStorage.setItem('scoreBoard', JSON.stringify(localScoreBoard));
+}
 
 // on click call the funstion to start the quiz
 startBtn.addEventListener("click", startQuiz);
@@ -140,6 +165,12 @@ function quizDefault() {
   if (!quizCont.classList.contains("hidden")) {
     quizCont.classList.add("hidden");
   }
+  if (!endCont.classList.contains("hidden")) {
+    endCont.classList.add("hidden");
+  }
+  if (!scoreBoardCont.classList.contains("hidden")) {
+    scoreBoardCont.classList.add("hidden");
+  }
   if (defaultCont.classList.contains("hidden")) {
     defaultCont.classList.remove("hidden");
   }
@@ -147,15 +178,27 @@ function quizDefault() {
 
 function endState() {
   clearInterval(timeInterval);
-  score = score + timeLeft;
+  if(score < 0) {
+    score = 0;
+  }
+  if (!responseContent.classList.contains("hidden")) {
+    responseContent.classList.add("hidden");
+  }
+  if (!quizCont.classList.contains("hidden")) {
+    quizCont.classList.add("hidden");
+  }
+  if (endCont.classList.contains("hidden")) {
+    endCont.classList.remove("hidden");
+  }
   console.log(score);
-  quizDefault();
+  submitBtn.addEventListener('click', storeScore);
 }
 
 quizDefault();
 
 // starts quiz
 function startQuiz() {
+  score=0;
   timerContent.textContent = timeLeft;
   countdown();
   defaultCont.classList.add("hidden");
@@ -219,12 +262,54 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex) {
     setNextQuestion();
   } else {
-    // clearInterval(timeInterval);
-    // score = score + timeLeft;
-    // console.log(score);
-    // quizDefault()
     endState();
   }
 
 }
+
+// score board populate
+function scoreBoardPopulate (event) {
+  event.preventDefault();
+  if (!responseContent.classList.contains("hidden")) {
+    responseContent.classList.add("hidden");
+  }
+  if (!quizCont.classList.contains("hidden")) {
+    quizCont.classList.add("hidden");
+  }
+  if (!endCont.classList.contains("hidden")) {
+    endCont.classList.add("hidden");
+  }
+  if (!defaultCont.classList.contains("hidden")) {
+    defaultCont.classList.add("hidden");
+  }
+  if (scoreBoardCont.classList.contains("hidden")) {
+    scoreBoardCont.classList.remove("hidden");
+  }
+  let localScoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
+  localScoreBoard.forEach((localScoreBoard) => {
+    const li = document.createElement("li");
+    li.textContent = `${localScoreBoard.name} ${localScoreBoard.score}`;
+    li.classList.add("scoreboard-item");
+    scoreCont.appendChild(li);
+  });
+}
+
+hiscoreBTN.addEventListener('click', scoreBoardPopulate)
+
+// clear local memory
+clearBtn.addEventListener('click', function(){
+  localStorage.clear();
+  while (answerBtns.firstChild) {
+    scoreCont.removeChild(scoreCont.firstChild);
+  }
+})
+
+// go back to default page
+backBtn.addEventListener('click', function(){
+  quizDefault();
+  while (answerBtns.firstChild) {
+    scoreCont.removeChild(scoreCont.firstChild);
+  }
+})
+
 
