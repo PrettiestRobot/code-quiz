@@ -20,7 +20,7 @@
     <!-- create header with view high score and timer -->
     <nav>
         <div class="nav-left">
-           <a href=""><h4>View High Scores</h4></a>
+           <a href="" class="hiscore-btn"><h4>View High Scores</h4></a>
         </div>
         <div class="nav-right">
             <h4 >Time: <span class="timer"></span></h4>
@@ -45,6 +45,21 @@
 
             </div>
             <p class="response hidden">That answer is <span class="answer-result"></span></p>
+
+        </section>
+        <section class="end-container hidden">
+            <h2>All Finished</h2>
+            <p>Your final score is <span class="score"></span></p>
+            <form action="" class="score-form">
+                <label>Enter Initials</label><input type="text" id="pname" >
+                <button id="submit-btn">Submit</button>
+            </form>
+        </section>
+        <section class="score-board hidden">
+            <ul class="score-container">
+
+            </ul>
+            <button id="back-btn">Go Back</button> <button id="clear-btn">Clear High Scores</button>
         </section>
     </main>
 
