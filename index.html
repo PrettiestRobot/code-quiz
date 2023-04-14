@@ -28,7 +28,7 @@
     </nav>
     <!-- create body that displays a question and 4 possible clickable answers -->
     <main>
-
+        <section class="main-container">
         <section class="default-container">
             <h2>Take the Code Quiz challenge!</h2>
             <p>Welcome to the Code quiz! Answer all the questions before the time runs out and beat the high score! Incorrect answers subtract points. Correct andswers add points. Good luck!</p>
@@ -53,8 +53,8 @@
             <h2>All Finished!</h2>
             <p>Your final score is <span class="score-span"></span>.</p>
             <form action="" class="score-form">
-                <label>Enter Initials:</label><input type="text" id="pname" >
-                <button id="submit-btn" class="btn">Submit</button>
+                <label for=""pname>Enter Initials:</label><input type="text" name="pname" id="pname" placeholder="Enter Your Initials" required>
+                <button id="submit-btn" type="submit" class="btn">Submit</button>
             </form>
         </section>
         <section class="score-board hidden">
@@ -63,6 +63,7 @@
             </ul>
             <button id="back-btn" class="btn">Go Back</button> <button id="clear-btn" class="btn">Clear High Scores</button>
         </section>
+    </section>
     </main>
 
     <script src="./assets/scripts/script.js"></script>

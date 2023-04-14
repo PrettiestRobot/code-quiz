@@ -2,7 +2,8 @@
   /*  color scheme */
   --alt-dark: rgb(201, 201, 201);
   --secondary: rgb(164, 164, 164);
-  --alt: rgb(102, 13, 203);
+  --alt: rgb(120, 17, 236);
+  --alt-hover: rgb(131, 38, 238);
   --light: white;
   --dark: rgb(20, 20, 20);
 
@@ -70,16 +71,28 @@ nav {
   color: var(--light);
   justify-content: space-between;
   padding: 1rem 2%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 nav .hiscore-btn {
   color: white;
 }
 
+nav .hiscore-btn:hover {
+  color: var(--alt-hover);
+}
+body {
+  background-color: var(--alt);
+}
+
 /* body styles */
-main {
+.main-container {
   margin: 75px auto;
   width: 50%;
+  background-color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  padding: 3rem;
+  border-radius: .75rem;
 }
 
 .default-container p {
@@ -100,6 +113,11 @@ main {
   margin: 0.5rem 0;
   border: none;
   color: var(--light);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--alt-hover);
 }
 
 .question-container {
@@ -123,6 +141,12 @@ main {
   font-size: 1.75rem;
   margin: 0.5rem 0;
   color: var(--light);
+  cursor: pointer;
+}
+
+.answer-option:hover {
+  transform: scale(102%);
+  background-color: var(--alt-hover);
 }
 
 .response-container {
@@ -192,4 +216,8 @@ main {
 
 .score-container {
   margin-bottom: 1rem;
+}
+
+#back-btn {
+  margin-right: 1rem;
 }

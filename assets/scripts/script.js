@@ -250,17 +250,17 @@ function selectAnswer(e) {
     if (responseContent.classList.contains("hidden")) {
       responseContent.classList.remove("hidden");
     }
-    score = score + 10;
+    score = score + 20;
     answerResult.textContent = "CORRECT!";
   } else {
     if (responseContent.classList.contains("hidden")) {
       responseContent.classList.remove("hidden");
     }
-    score = score - 10;
+    score = score - 20;
     answerResult.textContent = "INCORRECT!";
   }
   currentQuestionIndex++;
-  if (shuffledQuestions.length > currentQuestionIndex) {
+  if (5 > currentQuestionIndex) {
     setNextQuestion();
   } else {
     endState();
