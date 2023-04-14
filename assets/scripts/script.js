@@ -1,6 +1,6 @@
 const questionContent = document.querySelector(".question");
 const answersContent = document.querySelector(".answers-option");
-const responseContent = document.querySelector(".response");
+const responseContent = document.querySelector(".response-container");
 const timerContent = document.querySelector(".timer");
 const startBtn = document.querySelector(".start-btn");
 const defaultCont = document.querySelector(".default-container");
@@ -15,6 +15,7 @@ const clearBtn = document.querySelector('#clear-btn');
 const scoreCont = document.querySelector('.score-container');
 const scoreBoardCont = document.querySelector(".score-board")
 const hiscoreBTN = document.querySelector(".hiscore-btn");
+const scoreSpan = document.querySelector(".score-span");
 
 let score = 0;
 let timeLeft = 50;
@@ -190,7 +191,9 @@ function endState() {
   if (endCont.classList.contains("hidden")) {
     endCont.classList.remove("hidden");
   }
+  scoreSpan.textContent = score;
   console.log(score);
+
   submitBtn.addEventListener('click', storeScore);
 }
 
@@ -249,14 +252,12 @@ function selectAnswer(e) {
     }
     score = score + 10;
     answerResult.textContent = "CORRECT!";
-    console.log("thats correct");
   } else {
     if (responseContent.classList.contains("hidden")) {
       responseContent.classList.remove("hidden");
     }
     score = score - 10;
     answerResult.textContent = "INCORRECT!";
-    console.log("thats not correct");
   }
   currentQuestionIndex++;
   if (shuffledQuestions.length > currentQuestionIndex) {
@@ -288,7 +289,7 @@ function scoreBoardPopulate (event) {
   let localScoreBoard = JSON.parse(localStorage.getItem('scoreBoard'));
   localScoreBoard.forEach((localScoreBoard) => {
     const li = document.createElement("li");
-    li.textContent = `${localScoreBoard.name} ${localScoreBoard.score}`;
+    li.textContent = `${localScoreBoard.name.toUpperCase()} - ${localScoreBoard.score}`;
     li.classList.add("scoreboard-item");
     scoreCont.appendChild(li);
   });

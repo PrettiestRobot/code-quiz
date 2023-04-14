@@ -44,22 +44,24 @@
             <div class="answer-container">
 
             </div>
-            <p class="response hidden">That answer is <span class="answer-result"></span></p>
+            <section class="response-container hidden">
+            <p class="response">That answer is <span class="answer-result"></span></p>
+        </section>
 
         </section>
         <section class="end-container hidden">
-            <h2>All Finished</h2>
-            <p>Your final score is <span class="score"></span></p>
+            <h2>All Finished!</h2>
+            <p>Your final score is <span class="score-span"></span>.</p>
             <form action="" class="score-form">
-                <label>Enter Initials</label><input type="text" id="pname" >
-                <button id="submit-btn">Submit</button>
+                <label>Enter Initials:</label><input type="text" id="pname" >
+                <button id="submit-btn" class="btn">Submit</button>
             </form>
         </section>
         <section class="score-board hidden">
             <ul class="score-container">
 
             </ul>
-            <button id="back-btn">Go Back</button> <button id="clear-btn">Clear High Scores</button>
+            <button id="back-btn" class="btn">Go Back</button> <button id="clear-btn" class="btn">Clear High Scores</button>
         </section>
     </main>
 

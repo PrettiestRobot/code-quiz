@@ -1,8 +1,8 @@
 :root {
   /*  color scheme */
-  --primary: rgb(255, 251, 243);
-  --secondary: rgb(255, 43, 43);
-  --alt: rgb(95, 172, 255);
+  --alt-dark: rgb(201, 201, 201);
+  --secondary: rgb(164, 164, 164);
+  --alt: rgb(102, 13, 203);
   --light: white;
   --dark: rgb(20, 20, 20);
 
@@ -72,48 +72,45 @@ nav {
   padding: 1rem 2%;
 }
 
-/* body styles */
-main {
-  margin: 20% auto;
-  width: 66%;
+nav .hiscore-btn {
+  color: white;
 }
 
-.default-container {
+/* body styles */
+main {
+  margin: 75px auto;
+  width: 50%;
+}
 
+.default-container p {
+  line-height: 2rem;
+  margin: 1rem 0;
+  font-size: 1.75rem;
 }
 
 .hidden {
   display: none;
 }
 
-.default-container p {
-  font-size: 1.75rem;
-}
-
 .btn {
   background-color: var(--alt);
-  padding: 1rem;
-  border-radius: 1rem;
-  font-size: 1.75rem;
-  margin: 1rem 0;
+  padding: .5rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
   border: none;
+  color: var(--light);
 }
 
-.quiz-container {
-
+.question-container {
+  margin-bottom: 1rem;
 }
 
 .answer-container {
   display: flex;
   flex-direction: column;
   width: 300px;
-  /* background-color: brown; */
 }
-
-/* .answer-option {
-  display: flex;
-  background-color: green;
-} */
 
 .answer-option {
   display: flex;
@@ -121,9 +118,78 @@ main {
   width: 100%;
   border: none;
   background-color: var(--alt);
-  padding: 1rem;
+  padding: .5rem 1rem;
   border-radius: 1rem;
   font-size: 1.75rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  color: var(--light);
 }
 
+.response-container {
+  margin-top: 1rem;
+  border-top: 1px solid var(--dark);
+}
+
+.response,
+.answer-result {
+  font-size: 1.75rem;
+  padding-top: 1rem;
+}
+
+/* end state styles */
+
+.end-container h2 {
+  margin-bottom: 1rem;
+}
+
+.end-container p {
+  font-size: 1.75rem;
+}
+
+.end-container .score-span {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.score-form {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  border-top: 1px solid black;
+  padding-top: 1rem;
+}
+
+.score-form label{
+  font-size: 1.75rem;
+  margin-right: 1rem;
+}
+
+.score-form input {
+  border: none;
+  background-color: var(--alt-dark);
+  height: 2rem;
+  margin-right: 1rem;
+  font-size: 1.75rem;
+  padding: .5rem;
+}
+
+#pname {
+  height: 2rem;
+}
+
+/* scoreboard styles */
+
+.scoreboard-item {
+  font-size: 1.75rem;
+  background-color: var(--alt-dark);
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.scoreboard-item:nth-child(odd){
+  background-color: var(--secondary);
+}
+
+.score-container {
+  margin-bottom: 1rem;
+}
